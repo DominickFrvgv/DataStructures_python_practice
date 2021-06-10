@@ -1,6 +1,6 @@
 # Practicing by looking at the steps
 
-# append & length
+# append, length, display, addbeginning 
 class Node:
     def __init__(self, data):
         self.data = data
@@ -36,15 +36,39 @@ class Linked_List:
 
         return counter
 
+    def toList(self):
+        elem = []
+        curr_node = self.head
+        while curr_node:
+            elem.append(curr_node.data)
+            curr_node = curr_node.next
+        return elem
+
+    def display(self):
+        if self.head == None:
+            return 'empty list'
+        curr_node = self.head
+        while curr_node:
+            print(curr_node.data)
+            curr_node = curr_node.next
+        return '--'
+
+    def addBeginning(self, data):
+        new_node = Node(data)
+        new_node.next = self.head 
+        self.head = new_node
 
 # testing..
 
 a = Linked_List()
+print(a.display())
 a.append(3)
 a.append(37)
+a.addBeginning(2)
 a.append(6)
 print(a.length())
 a.append(7)
 a.append(8)
 print(a.length())
-
+print(a.toList())
+print(a.display())
